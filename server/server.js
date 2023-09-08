@@ -1,6 +1,17 @@
-const express = require('express')
+import express from "express";
+import dotenv from "dotenv"
+
+// Rest Object
+
 const app =express();
-PORT = 8080
+
+// configure env
+
+dotenv.config();
+
+// PORT
+
+const PORT = process.env.PORT ;
 
 app.listen(PORT,()=>{
     console.log(`Server running at PORT ${PORT}`)
