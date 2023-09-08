@@ -1,18 +1,38 @@
 import express from "express";
 import dotenv from "dotenv"
+import morgan from "morgan";
+import colors from "colors"
+import connectDB from "./config/db.js";
 
 // Rest Object
 
 const app =express();
 
+// Middlewares
+
+app.use(express.json())
+app.use(morgan('dev'))
+
 // configure env
 
 dotenv.config();
 
+// Database Configuration
+
+connectDB();
+
 // PORT
 
-const PORT = process.env.PORT ;
+const PORT = process.env.PORT || 8080 ;
+
+// Rest APIs
+
+app.get("/",(req,resp)=>{
+ resp.send("<h1>welcome to Eccomerce App</h1>")
+})
+
+// Running Port
 
 app.listen(PORT,()=>{
-    console.log(`Server running at PORT ${PORT}`)
+    console.log(`Server running at PORT ${PORT}`.bgGreen.blue)
 });
