@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import morgan from "morgan";
 import colors from "colors"
 import connectDB from "./config/db.js";
+import UserRoutes from './routes/UserRoutes.js'
 
 // Rest Object
 
@@ -12,6 +13,10 @@ const app =express();
 
 app.use(express.json())
 app.use(morgan('dev'))
+
+// Routes
+
+app.use('/api/v1/auth',UserRoutes)
 
 // configure env
 
