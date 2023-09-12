@@ -119,3 +119,62 @@ resp.status(200).send({
   }
 }
 
+export const testController =(req,resp)=>{
+   resp.send("I am Testing")
+}
+
+   
+
+
+// export const loginController = async (req,resp)=>{
+//  try {
+//    const {email,password} = req.body
+//    if (!email || !password){
+//       return resp.status(404).send({
+//          success:false,
+//          message:"Invalid Email or Password",
+//       })
+//    }
+ 
+//    //  Check User
+
+//    const user = await UserModel.findOne({email})
+//    if(!user){
+//       return resp.status(404).status({
+//          success:false,
+//          message: "Email is not registered",
+//       })
+//    }
+//    const match = await comparePassword(password, user.password)
+//    if(!match){
+//       return resp.status(200).status({
+//          success:false,
+//          message:"Invalid Password",
+//       })
+//    }
+//    // JWT Token
+//    // const token = await JWT.sign({_id: user._id}, process.env.JWT_SECRET_TOKEN ,{
+//    //    expiresIn: "7d",
+//    // })
+//    // resp.status(200).send({
+//    //    success:true,
+//    //    message:'Login Successfully',
+//    //    user:{
+//    //       name: user.name,
+//    //       email: user.email,
+//    //       phone: user.phone,
+//    //       address: user.address,
+//    //    },
+//    //    token,
+//    // });
+
+//  } catch (error) {
+//    console.log(error)
+//    resp.status(500).send({
+//       success:false,
+//       message: "Error in Login",
+//       error
+//    })
+//  }
+// }
+
